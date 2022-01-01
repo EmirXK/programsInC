@@ -21,7 +21,7 @@ int main(){
 		
 		//declalring variables
 		
-		int i,j,temp,temp2,temp3,sum=0, array[5], score;
+		int i=0,j,temp,temp2,temp3,sum=0, array[5],power,score;
 	
 	printf("bir sayi giriniz\n");
 	scanf("%d",&score);
@@ -65,13 +65,19 @@ int main(){
 	
 	//calculating to check if the original number is an armstrong number (narcicistic number)
 	
+	
 	for(j=0;j<temp2;j++){
+		power = pow(array[j],temp2);
+		printf("%d ^ %d = %d\n",array[j],temp2, power);
 		sum = pow(array[j],temp2) + sum;
 	}
 	if(sum == temp3){
-		printf("girdiginiz sayi bir armstrong sayisidir.");
+		printf("%d = %d\n\n",sum,temp3);
+		printf("%d bir armstrong sayisidir.",temp3);
 	}
-	else
-		printf("girdiginiz sayi bir armstrong sayisi degildir.");
+	else{
+		printf("%d =/= %d\n\n",sum,temp3);
+		printf("%d bir armstrong sayisi degildir.",temp3);
+	}
 		
 	}
