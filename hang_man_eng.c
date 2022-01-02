@@ -31,6 +31,8 @@ int main()
 	"technology",
 	"physics"};
 	
+	char cmp[] = "\\n";
+	
 
 	int word_length = strlen(words[rand_num]);
 	
@@ -61,14 +63,14 @@ int main()
 	
 	
 	//this part was used for testing, it is now unnecessary.
-
 /*
+
 	printf("words:%s rand_num:%d word_length:%d\n",
 			words[rand_num],
 			rand_num,
 			word_length);
 			
-*/			
+*/		
 	
 	
 	
@@ -133,7 +135,19 @@ int main()
 	  	
 	  	printf("LAST CHANCE! TRY TO GUESS THE WORD: "); // The last guess mechanism.
 	  	
-	  	gets(last_guess);
+	 // 	strcat(words[rand_num],cmp); // testing
+	  	
+	  //	printf("rand_num %s\n",words[rand_num]); 
+	  
+	  
+	  	
+	  	fgets(last_guess,16,stdin);
+	  	
+	 // 	printf ("[%s]\n", last_guess);  //testing
+	  	
+	  	int ln = strlen (last_guess);
+		if ((ln > 0) && (last_guess[ln-1] == '\n'))
+    	last_guess[ln-1] = '\0';
 		
 		result = strcmp(last_guess,temp_array);
 		
