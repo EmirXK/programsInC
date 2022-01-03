@@ -50,7 +50,7 @@ int main()
 	int quit = 0;
 	
 	int loop_index = 0;
-	int result = 0;
+	int result = 10;
 	
 	char guess[16];
 	char entered_letter;
@@ -75,8 +75,11 @@ int main()
 	
 	
   	while(numCorrect < word_length){
+  	
 
   		for(loop_index = 0; loop_index < word_length; loop_index++){
+  			
+  			
 			
 				if(guessed_letter[loop_index] == 1){
 					printf("%c",words[rand_num][loop_index]); //this part is the user interface
@@ -93,10 +96,26 @@ int main()
   		printf("Enter a guess letter \n");
   		fgets(guess, 16, stdin);
   		
+  		int ln = strlen (guess);
+		if ((ln > 0) && (guess[ln-1] == '\n'))
+    	guess[ln-1] = '\0';
+  			
+  		result = strcmp(guess,words[rand_num]);
+  	//	fputs(guess,stdout);
+  		printf("\n");
+  	//	fputs(words[rand_num],stdout);
+  		printf("\n");
+  			printf("result value: %d\n",result);
+  			if ( result == 0 ){
+		       break;
+			}
+			
   		if(strncmp(guess, "quit", 4) == 0){ //the quit mechanism, if you type quit the loop will break.
   			quit = 1;
   			break;
 		  }
+	
+		
 		  
 		entered_letter = guess[0];
 		printf("entered_letter:%c\n",entered_letter);
@@ -145,7 +164,7 @@ int main()
 	  	
 	 // 	printf ("[%s]\n", last_guess);  //testing
 	  	
-	  	int ln = strlen (last_guess);
+	    int ln = strlen (last_guess);
 		if ((ln > 0) && (last_guess[ln-1] == '\n'))
     	last_guess[ln-1] = '\0';
 		
