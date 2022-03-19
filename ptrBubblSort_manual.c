@@ -44,14 +44,14 @@ int main() {
 	
 	printf("Start typing in the numbers: \n");
 	
-	//assign rand value and copy value adress to pointer
+	//assign value and copy value adress to pointer
 	for(i=0;i<size;i++){
 		scanf("%d",&value);
 		array[i] = value;
 		pArray[i] = &array[i];
 	}
-	//print rand array
-	printf("Random Array:\n");
+	//print array
+	printf("Array:\n");
 	for(i=0;i<size;i++){
 		printf("%d ",array[i]);
 	} printf("\n\n");
